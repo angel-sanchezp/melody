@@ -1,0 +1,30 @@
+// SETUP
+@import 'setup/variables.scss';
+@import 'setup/functions.scss';
+@import 'setup/mixins.scss';
+@import 'setup/typography.scss';
+
+// BASICS
+@import 'basics/helpers.scss';
+@import 'basics/layout.scss';
+@import 'basics/base.scss';
+@import 'basics/buttons.scss';
+
+//  PAGES
+@import 'pages/home-page.scss';
+@import 'pages/audiofy-app.scss';
+@import 'pages/search.scss';
+
+
+
+//  CMPS
+@import 'cmps/app-header.scss';
+@import 'cmps/footer.scss';
+@import 'cmps/sidebar.scss';
+@import 'cmps/home-board.scss';
+@import 'cmps/audio-list.scss';
+@import 'cmps/playlist-list.scss';
+@import 'cmps/create-playlist.scss';
+
+
+

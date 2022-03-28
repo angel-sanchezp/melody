@@ -1,0 +1,36 @@
+.home-board-container {
+    grid-area: home-board-container;
+    width: 83%;
+    height: 100%;
+    color: whitesmoke;
+    min-height: 0;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-left: 17%;
+    padding-left: 50px;
+
+    .list-cards {
+        grid-gap: 24px;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        padding: 10px;
+
+        .song-container {
+            background: #181818;
+            flex: 1;
+            isolation: isolate;
+            padding: 16px;
+            position: relative;
+
+            > * {
+                position: relative;
+                overflow: hidden;
+                cursor: pointer;
+            }
+        }
+    }
+}

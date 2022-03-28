@@ -1,0 +1,14 @@
+.audiofy-app-container {
+    display: grid;
+    grid-template-areas:
+        "sidebar-container home-board-container home-board-container"
+        "footer footer footer";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr auto;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+    background-color: rgba(5, 5, 5, 0.877);
+
+}

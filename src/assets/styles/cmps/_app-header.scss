@@ -1,0 +1,34 @@
+.app-header{
+    // height: 50px;
+    background-color: rgba(5, 5, 5, 0.877);
+    padding-right: $layoutPadding;
+    padding-left: $layoutPadding;
+    height: 12vh;
+  
+    .app-header-container{
+        justify-content: space-between;
+        align-items: center;
+
+        .logo{
+         height: 110px;
+         color: #ffffff;
+
+         .img-logo{
+            width: 70%;
+            margin-top: 20%;
+            margin-left: -167px;
+         }
+        }
+    
+    
+        .header-link-btns{
+            font-size: rem(20px);
+            color: #ffffff;
+            gap: 15px;
+            padding: 10px;
+            font-weight: bold;
+            text-shadow: -2px 1px 5px black;
+        }
+    }
+    
+    }
