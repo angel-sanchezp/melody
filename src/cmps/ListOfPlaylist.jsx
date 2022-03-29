@@ -12,13 +12,13 @@ export const ListOfPlaylist = (props) => {
 
     const playListName = item => {
         dispatch(setCurrItem(item))
-        history.push("/audiofyapp");
+        history.push("/audioList");
     }
     
     return (
         <div className="sidebar-playlist-container">
             {props.playList.length && props.playList.map((item) => (
-                <div className="list-name" key={item} onClick={() => playListName(item)}>
+                <div className="list-name" key={item.name} onClick={() => playListName(item)}>
                     <p>{item.name}</p>
                 </div>
             ))}

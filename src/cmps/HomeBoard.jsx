@@ -41,8 +41,8 @@ export const HomeBoard = (props) => {
             <div className="top-mixes">
                 <h1>top-mixes</h1>
                 <div className="list-cards">
-                    {props.data.length && props.data[3].mix.slice(0, 4).map((item) => (
-                        <Link to='./audiolist'> <div className="song-container" key={item} onClick={() => songsList(item)} >
+                    {props.data.length && props.data[3].mix.slice(0, 4).map((item,index) => (
+                        <Link to='./audiolist'> <div className="song-container" key={index} onClick={() => songsList(item)} >
                             <div className="img-container" style={{ width: "100%", height: "80%" }}>
                                 <img src={item.imgUrl} style={{ width: "100%", height: "188px" }} alt="" />
                             </div>
@@ -57,7 +57,7 @@ export const HomeBoard = (props) => {
                 <h1>Recommended radio</h1>
                 <div className="list-cards">
                     {props.data.length && props.data[2].Artist.slice(0, 4).map((song) => (
-                        <Link to='./audiolist'> <div className="song-container" key={song}>
+                        <Link to='./audiolist'> <div className="song-container" key={song.name}>
                             <div className="img-container" style={{ width: "100%", height: "80%" }}>
                                 <img src={song.imgUrl} style={{ width: "100%", height: "188px" }} alt="" />
                             </div>
@@ -72,7 +72,7 @@ export const HomeBoard = (props) => {
                 <h1>Biggest hits</h1>
                 <div className="list-cards">
                     {props.data.length && props.data[0].songs.slice(0, 4).map((song) => (
-                        <div className="song-container" key={song} onClick={() => playVideo(song)}>
+                        <div className="song-container" key={song.title} onClick={() => playVideo(song)}>
                             <div className="img-container" style={{ width: "100%", height: "80%" }}>
                                 <img src={song.imgUrl} style={{ width: "100%", height: "188px" }} alt="" />
                             </div>
