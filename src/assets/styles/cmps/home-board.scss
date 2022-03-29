@@ -1,6 +1,6 @@
 .home-board-container {
     grid-area: home-board-container;
-    width: 83%;
+    // width: 83%;
     height: 100%;
     color: whitesmoke;
     min-height: 0;
@@ -10,9 +10,8 @@
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    margin-left: 17%;
+    margin-left: 207px;
     padding-left: 50px;
-
     .list-cards {
         grid-gap: 24px;
         display: grid;

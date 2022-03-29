@@ -1,9 +1,10 @@
 const initialState = {
     data: [],
-    currStation:null,
-    playList:[],
-    recentSongs:[],
-    
+    currStation: null,
+    playList: [],
+    recentSongs: [],
+    videoToPlay: null,
+
 };
 
 export function boardReducer(state = initialState, action) {
@@ -24,14 +25,17 @@ export function boardReducer(state = initialState, action) {
         case 'ADD_PLAYLIST':
             newState = { ...state, playList: [...state.playList, action.addPlaylist] };
             break;
-        case 'PUSH_RECENTSONGS':
+        case 'SET_RECENTSONGS':
             newState = { ...state, recentSongs: [...state.recentSongs, action.addRecentSong] };
             break;
         case 'SET_BOARD':
-            newState = { ...state, board: {...action.board }  };
+            newState = { ...state, board: { ...action.board } };
             break;
-            case 'SET_CURR_ITEM':
-                newState ={currStation: action.item}
+        case 'SET_CURR_ITEM':
+            newState = { currStation: action.item }
+            break;
+        case 'SET_VIDEO_TOPLAY':
+            newState = { videoToPlay: action.video }
     }
     return newState;
 }

@@ -66,7 +66,7 @@ export function addRecentSong(song) {
         try {
             const savedRecentSong = await boardService.saveToRecent(song);
             console.log(savedRecentSong)
-            dispatch({ type: 'PUSH_RECENTSONGS', addRecentSong: savedRecentSong });
+            dispatch({ type: 'SET_RECENTSONGS', addRecentSong: savedRecentSong });
         } catch (err) {
             console.log('Cannot add RECENT SONGS', err);
         }
@@ -99,12 +99,21 @@ export function setBoard(board) {
 }
 
 export function setCurrItem(item) {
-    console.log('item in action', item);
     return async (dispatch) => {
         try {
             dispatch({ type: 'SET_CURR_ITEM', item })
         } catch (err) {
             console.log('Couldnt update curr item');
+        }
+    }
+}
+export function setVideoToPlay(video) {
+    console.log('video to play', video);
+    return async (dispatch) => {
+        try {
+            dispatch({ type: 'SET_VIDEO_TOPLAY', video})
+        } catch (err) {
+            console.log('Couldnt play  curr video');
         }
     }
 }

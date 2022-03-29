@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react"
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import { SideBar } from "../cmps/SideBar"
-import { YouPlayer } from '../cmps/YouPlayer';
 import { CreatePlaylist } from '../cmps/CreatePlaylist'
-
+import { addRecentSong, setVideoToPlay } from '../store/board.action'
 
 
 import { searchService } from '../services/spotyfi.conection.js'
@@ -27,9 +26,9 @@ export const Search = ({ props }) => {
     const [islngChange, setIsLNGChange] = useState(false)
     const [showingModal, setShownModal] = useState(false)
     const [selectedVideo, setSelectedVideo] = useState(null)
-    const [shownPlayer, setShownPlayer] = useState(false)
-    const [videoId, setVideoId] = useState(null)
+
     const [shownCreatePl, setShownCreatePl] = useState(false)
+    const dispatch = useDispatch()
 
 
     useEffect(() => {
@@ -75,9 +74,10 @@ export const Search = ({ props }) => {
         boardService.addPlayList(selectedVideo, toPlayList)
     }
 
-    const playVideo = videoId => {
-        setVideoId(videoId)
-        setShownPlayer(true)
+    const playVideo = video => {
+        dispatch(setVideoToPlay(video.videoId))
+        dispatch(addRecentSong(video))
+
     }
 
     const handleListen = () => {
@@ -153,11 +153,6 @@ export const Search = ({ props }) => {
                 <button onClick={createPL}><img className="img-nav" src="imgs/icon/create-icon.png" style={{ width: " 50%" }} /></button>
 
             </div>}
-
-            <div className="player-song" style={{ marginLeft: "22%" }}>
-                {shownPlayer && <YouPlayer videoId={videoId} />}
-            </div>
-
             {shownCreatePl && (<CreatePlaylist createPL={createPL} />)}
 
 

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { ListOfPlaylist } from './ListOfPlaylist'
 import { loadPlaylist } from '../store/board.action'
+import { YouPlayer } from './YouPlayer'
 
 
 export const SideBar = ({ createPL }) => {

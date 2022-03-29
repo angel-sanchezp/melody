@@ -2,28 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { removePlayList } from '../store/board.action'
 import { useHistory } from "react-router-dom";
-import { addRecentSong } from '../store/board.action'
+import { addRecentSong, setVideoToPlay } from '../store/board.action'
 
-
-
-import { YouPlayer } from './YouPlayer';
 import { SideBar } from './SideBar';
 
-
 export const AudioList = (props) => {
-    const { currStation} = useSelector(state => state.boardModule)
-    const [shownPlayer, setShownPlayer] = useState(false)
-    const [videoId, setVideoId] = useState(null)
+    const { currStation } = useSelector(state => state.boardModule)
 
     const dispatch = useDispatch()
     let history = useHistory();
 
-
     const playVideo = video => {
-        setVideoId(video.videoId)
-        setShownPlayer(true)
+        dispatch(setVideoToPlay(video.videoId))
         dispatch(addRecentSong(video))
-
     }
 
     const removePlayListOfList = playlistId => {
@@ -60,9 +51,6 @@ export const AudioList = (props) => {
                 </div>
             ))}
 
-            <div className="player-song"  style={{marginLeft: "22%"}}>
-                {shownPlayer && <YouPlayer videoId={videoId} />}
-            </div>
 
         </div>
     )
