@@ -13,6 +13,7 @@ import { YouPlayer } from './cmps/YouPlayer.jsx';
 
 export const App = () => {
   const { videoToPlay } = useSelector(state => state.boardModule)
+  // const { listToPlay } = useSelector(state => state.boardModule)
 
   return (
     <>
@@ -23,7 +24,8 @@ export const App = () => {
         </Switch>
       </main>
       <div className="player-song">
-       <YouPlayer videoId={videoToPlay} />
+        <YouPlayer videos={videoToPlay} />
+
       </div>
       <Footer />
     </>

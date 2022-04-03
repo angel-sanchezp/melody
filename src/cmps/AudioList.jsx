@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { removePlayList } from '../store/board.action'
 import { useHistory } from "react-router-dom";
-import { addRecentSong, setVideoToPlay } from '../store/board.action'
+import { addRecentSong, setVideoToPlay} from '../store/board.action'
 
 import { SideBar } from './SideBar';
 
@@ -12,8 +12,19 @@ export const AudioList = (props) => {
     const dispatch = useDispatch()
     let history = useHistory();
 
+    useEffect(() => {
+        const videoIdList = currStation.songs.map(song => song.videoId)
+        dispatch(setVideoToPlay(videoIdList))
+
+
+
+    }, [currStation])
+
+
     const playVideo = video => {
-        dispatch(setVideoToPlay(video.videoId))
+        const list=[]
+        list.push(video.videoId)
+        dispatch(setVideoToPlay(list))
         dispatch(addRecentSong(video))
     }
 

@@ -3,7 +3,8 @@ const initialState = {
     currStation: null,
     playList: [],
     recentSongs: [],
-    videoToPlay: null,
+    videoToPlay: [],
+    // listToPlay:[]
 
 };
 
@@ -35,7 +36,11 @@ export function boardReducer(state = initialState, action) {
             newState = { currStation: action.item }
             break;
         case 'SET_VIDEO_TOPLAY':
-            newState = { videoToPlay: action.video }
+                newState = { ...state, videoToPlay: [...action.video] };
+            // newState = { videoToPlay: action.video }
+            break;
+        // case 'SET_LIST_TOPLAY':
+        //     newState = { ...state, listToPlay: [...action.listToPlay] };
     }
     return newState;
 }

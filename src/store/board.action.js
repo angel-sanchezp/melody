@@ -37,7 +37,6 @@ export function loadRecentSongs() {
 
 
 export function removePlayList(playlistId) {
-    console.log(playlistId);
     return async (dispatch) => {
         try {
             await boardService.removePlaylistOfList(playlistId);
@@ -49,7 +48,6 @@ export function removePlayList(playlistId) {
 }
 
 export function addPlaylistToList(playList) {
-    console.log(playList);
     return async (dispatch) => {
         try {
             const savedplayList = await boardService.saveToList(playList);
@@ -108,7 +106,6 @@ export function setCurrItem(item) {
     }
 }
 export function setVideoToPlay(video) {
-    console.log('video to play', video);
     return async (dispatch) => {
         try {
             dispatch({ type: 'SET_VIDEO_TOPLAY', video})
@@ -117,6 +114,8 @@ export function setVideoToPlay(video) {
         }
     }
 }
+
+
 
 
 

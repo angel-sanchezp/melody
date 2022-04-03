@@ -891,7 +891,6 @@ async function queryList() {
 }
 
 function remove(entityType, entityId) {
-    console.log(entityType, entityId);
     var entities = _loadBoardsFromStorage(KEY) 
     const idx = entities.findIndex(entity => entity._id === entityId);
     entities.splice(idx, 1);
@@ -908,9 +907,7 @@ function get(entityType, entityId) {
 function post(key='playListDB',newEntity) {
     newEntity._id = utilService.makeId();
     var playlistList=_loadBoardsFromStorage(key)||[]
-    console.log(playlistList);
     playlistList.unshift(newEntity)
-    console.log(playlistList);
     _save(key,  playlistList);
     return newEntity;
 

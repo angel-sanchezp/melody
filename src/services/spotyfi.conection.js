@@ -18,7 +18,6 @@ export const searchService = {
 }
 
 async function getVideos(value) {
-  console.log('get videos', value)
   if (value.length) return
   // const searchs = localStorage.getItem(KEY)|| [];
   // console.log(searchs);
@@ -62,7 +61,6 @@ async function getVideos(value) {
 
 async function getVideoData(videoId){
   const { data } = await axios.get(`https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${videoId}&key=${YT_DataKey}`)
-  console.log('data from get video  data', data);
   return data.items[0].contentDetails.duration
 }
 
