@@ -24,7 +24,7 @@ export const App = () => {
         </Switch>
       </main>
       <div className="player-song">
-        <YouPlayer videos={videoToPlay} />
+       {videoToPlay && <YouPlayer videos={videoToPlay} />}
 
       </div>
       <Footer />

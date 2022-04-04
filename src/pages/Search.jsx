@@ -71,6 +71,7 @@ export const Search = ({ props }) => {
     }
 
     const addToPlayList = async (toPlayList) => {
+        console.log('add to playlist', toPlayList);
         boardService.addPlayList(selectedVideo, toPlayList)
     }
 

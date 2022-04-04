@@ -46,6 +46,7 @@ async function login(credentials) {
     // const user = await httpService.post('auth/login', credentials)
     if (user) {
         _setLoggedinUser(user)
+        console.log(user)
         return user
 
     }
@@ -72,7 +73,7 @@ async function signup(newUser) {
 }
 
 async function logout() {
-    await httpService.post('auth/logout');
+    // await httpService.post('auth/logout');
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN, null);
     return;
 }

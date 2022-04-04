@@ -9,7 +9,7 @@ export function login(credentials) {
 
             const action = { type: 'SET_USER', user }
             dispatch(action)
-            console.log('credentials.username:', credentials.username);
+            console.log('credentials.username:', credentials);
             if (credentials.username !== 'Guest') {
             }
             return user;
@@ -53,16 +53,18 @@ export function signup(credentials) {
         }
     };
 }
+
 export function logout() {
+
     return async (dispatch) => {
         try {
-
+                   console.log('do logout');
             await userService.logout();
 
             const action = { type: 'SET_USER', user: null };
             dispatch(action);
 
-            window.location.assign('/board/login')
+            window.location.assign('/')
         } catch (err) {
         }
     };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from "react-router-dom";
 import {login } from '../store/user.action'
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -21,6 +22,8 @@ const theme = createTheme();
 export const Login = () => {
     const [values, setUserValues] = useState([])
     const dispatch = useDispatch()
+    let history = useHistory();
+
 
     useEffect(() => {
         dispatch(login(values))
@@ -47,9 +50,11 @@ export const Login = () => {
 
     const handleSubmit = (values, { setSubmitting }) => {
         setUserValues(values)
+        history.push("/audiofyapp");
         setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
+
         }, 400);
     }
 
