@@ -25,7 +25,6 @@ export function AppHeader() {
                     <button className="log-out" onClick={onLogOut}>Log Out</button>
                 </div> :
                     <div className="header-link-btns flex">
-                        <Link to={'/'}>Sign up</Link>|
                         <Link to={'/login'}>Log in</Link>
                     </div>}
             </div>

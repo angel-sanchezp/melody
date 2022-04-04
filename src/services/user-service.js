@@ -43,20 +43,19 @@ async function login(credentials) {
     const users = await storageLocal.loadFromStorage(KEY_UDB) || _getUsers()
     const user = users.find(user => user.email === credentials.email &&
         user.password === credentials.password)
-    // const user = await httpService.post('auth/login', credentials)
-    if (user) {
-        _setLoggedinUser(user)
-        console.log(user)
-        return user
-
+        // const user = await httpService.post('auth/login', credentials)
+        if (user) {
+            _setLoggedinUser(user)
+            console.log(user)
+            return user
+            
+        }
     }
-}
-
-async function googleLogin(tokenId) {
-
-    try {
-
-        const user = await httpService.post('auth/googlelogin', { tokenId })
+    
+    async function googleLogin(tokenId) {
+        
+        try {
+            const user = await httpService.post('auth/googlelogin', { tokenId })
         if (user) {
             _setLoggedinUser(user);
             return user

@@ -12,7 +12,7 @@ export function HomePage() {
                 <h3>Search, Create and Listening your Own Playlist</h3>
             </div>
             <a  href="/audiofyapp" className="btn-start">
-                GET MELODY FREE
+                MELODY DEMO
             </a>
         </div>
     )
